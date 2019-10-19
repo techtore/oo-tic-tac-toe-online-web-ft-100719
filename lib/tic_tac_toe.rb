@@ -76,7 +76,9 @@ class TicTacToe
            
       if user_inputs == [WIN_COMBINATIONS] 
         WIN_COMBINATIONS 
-      else  
+        
+      else 
+        !WIN_COMBINATIONS || @board.all? == "X" || "O" 
         false
      
       end  
