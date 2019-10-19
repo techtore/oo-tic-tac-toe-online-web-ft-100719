@@ -78,16 +78,79 @@ class TicTacToe
      position2 = @board[combo1]
      position3 = @board[combo2]
      
-     if (position1 == "X" && position2 =="X" && position3 =="X") || (position1 == "O" && position2 =="O" && position3 =="O")
-       win_combo
+     if position1 == position2 && position2 == position3
+       
+        return win_combo
+  
+     
+    # if (position1 == "X" && position2 =="X" && position3 =="X") || (position1 == "O" && position2 =="O" && position3 =="O")
+      
+     #else 
+      
+       #return false
     
       # elsif
-      # !@board.include?("") && @board.all?{|string| string == "X" || string == "O"}
+      # 
       #   false 
      end
    end
+   return false
   end
+  
+  def full?
+    @board.all?{|string| string == "X" || string == "O"}
+  end
+  def draw?
+    !won? && full?
+  end 
+  def over?
+   if draw? || won?
+     return true
+   else
+    return false
+  end
+  end 
+  def winner
+    
+    winners_combo = won?
+    # binding.pry
+
+    if @board[winners_combo[0]] == "X" 
+        return "X"
+    elsif @board[winners_combo[0]] == "O"
+        return "O"
+    else !won? && full?
+      return nil 
+      
+   end
+  end
+  
+   def play
+    until over?
+      turn
+    end
+    if winner == "X"
+      puts "Congratulations X!"
+    else winner == "O"
+      puts "Congratulations O!"
+    end
+     if draw? == true
+      puts "Cat's Game!"
+    end
+    end
 end
+ # winners_combo.detect{|token| token == "X" || token == "O"} 
+ # else
+    #   # if winners_combo.detect("O")
+    #   # return "O"
+    # if @board.all?{|winners_combo| winners_combo == "X"}
+    #   return "X"
+    # else
+    # # elsif @board.all?{ == "O"}
+    # return "O"
+  # end
+  
+
   # !@board.include?(“”) && 
     #   then we need to look at positions on the board, or set each board position equal to a variable?
     #   position = board[index?]
@@ -101,14 +164,10 @@ end
      
     # return win_combos #need to return the winning combos after we've matched them
  
-  def full?
-  !@board.include?(“”) ? true : false
-  #   if @board.include?()
-  #     true
-  #     else @board.include?("")
-  #       false
-  end
+  
+
   # end
+  # if !@board.include?("") && @board.all?{|string| string == "X" || string == "O"}
 
 
    # user_inputs = []
