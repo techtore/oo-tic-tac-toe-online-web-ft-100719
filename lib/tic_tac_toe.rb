@@ -68,22 +68,60 @@ class TicTacToe
   end
 
   def won?
-      
-          user_inputs = []
-          user_inputs << self.valid_move?
-          user_inputs << self.valid_move?
-          user_inputs << self.valid_move?
-           
-      if user_inputs == [WIN_COMBINATIONS] 
-        WIN_COMBINATIONS 
-        
-      else 
-        !WIN_COMBINATIONS || @board.all? == "X" || "O" 
-        false
-     
-      end  
-     
     
+    WIN_COMBINATIONS.each do |win_combo|
+     combo = win_combo[0] #setting each win_combo = to a variable
+     combo1 = win_combo[1]
+     combo2 = win_combo[2]
+     
+     position1 = @board[combo]
+     position2 = @board[combo1]
+     position3 = @board[combo2]
+     
+     if (position1 == "X" && position2 =="X" && position3 =="X") || (position1 == "O" && position2 =="O" && position3 =="O")
+       win_combo
+    
+      # elsif
+      # !@board.include?("") && @board.all?{|string| string == "X" || string == "O"}
+      #   false 
+     end
+   end
   end
-
 end
+  # !@board.include?(“”) && 
+    #   then we need to look at positions on the board, or set each board position equal to a variable?
+    #   position = board[index?]
+       
+    #   then check if all the board positions have X's or O's 
+      
+    #   if yes return a win_combo 
+    #   else, return false 
+    # else @board.all? == "X" || "O" 
+    
+     
+    # return win_combos #need to return the winning combos after we've matched them
+ 
+  def full?
+  !@board.include?(“”) ? true : false
+  #   if @board.include?()
+  #     true
+  #     else @board.include?("")
+  #       false
+  end
+  # end
+
+
+   # user_inputs = []
+          # user_inputs << self.valid_move?
+          # user_inputs << self.valid_move?
+          # user_inputs << self.valid_move?
+           
+      # if user_inputs == [WIN_COMBINATIONS] 
+      #   WIN_COMBINATIONS 
+        
+      # else 
+      #   ( @board.all? == "X" || "O")  || @board.any? 
+      #   # !WIN_COMBINATIONS
+      #   false
+     
+      # end  
