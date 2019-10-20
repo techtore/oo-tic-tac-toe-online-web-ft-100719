@@ -48,7 +48,6 @@ class TicTacToe
   end
 
   def turn_count
-    #@board.count("X") + @board.count("O")
     @board.count {|token| token=="X"||token=="O"}
   end
 
@@ -77,21 +76,10 @@ class TicTacToe
      position1 = @board[combo]
      position2 = @board[combo1]
      position3 = @board[combo2]
-     
-     if position1 == position2 && position2 == position3
+      if (position1 == "X" && position2 =="X" && position3 =="X") || (position1 == "O" && position2 =="O" && position3 =="O")
+     #if position1 == position2 && position2 == position3  
        
         return win_combo
-  
-     
-    # if (position1 == "X" && position2 =="X" && position3 =="X") || (position1 == "O" && position2 =="O" && position3 =="O")
-      
-     #else 
-      
-       #return false
-    
-      # elsif
-      # 
-      #   false 
      end
    end
    return false
@@ -111,34 +99,47 @@ class TicTacToe
   end
   end 
   def winner
-    
+    winners_combo = []
     winners_combo = won?
-    # binding.pry
-
-    if @board[winners_combo[0]] == "X" 
+    
+    if winners_combo == false
+      return nil
+    else
+      if @board[winners_combo[0]] == "X" 
         return "X"
-    elsif @board[winners_combo[0]] == "O"
+      else 
         return "O"
-    else !won? && full?
-      return nil 
-      
-   end
+      end
+    end
   end
   
    def play
-    until over?
+    until over? == true
       turn
     end
-    if winner == "X"
-      puts "Congratulations X!"
-    else winner == "O"
-      puts "Congratulations O!"
-    end
-     if draw? == true
+    if won?
+      puts "Congratulations #{winner}!"
+    #   puts "Congratulations X!"
+    # else winner == "O"
+    #   puts "Congratulations O!"
+     elsif draw?
       puts "Cat's Game!"
     end
     end
-end
+  end
+
+    # until over? == true
+    #   turn
+    # # if !draw? == true
+    # #     turn
+    # #   end
+    # end
+    # # if won? == true
+    # #   puts "Congratulations!"+ winner
+    # #   elsif draw? 
+    # #   puts "Cat's Game!"
+    # # end
+
  # winners_combo.detect{|token| token == "X" || token == "O"} 
  # else
     #   # if winners_combo.detect("O")
