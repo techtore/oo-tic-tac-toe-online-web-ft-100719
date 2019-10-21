@@ -99,7 +99,14 @@ class TicTacToe
   end
   end 
   def winner
+<<<<<<< HEAD
     winners_combo = []
+=======
+<<<<<<< HEAD
+    
+=======
+>>>>>>> bca8fea2e5e51e47ad69fc65a9e1dec7e599923f
+>>>>>>> 5730ee038ed73d3cf55e4adc561155077d2ba2bd
     winners_combo = won?
     
     if winners_combo == false
@@ -114,7 +121,12 @@ class TicTacToe
   end
   
    def play
+<<<<<<< HEAD
     until over? == true
+=======
+<<<<<<< HEAD
+    until over?
+>>>>>>> 5730ee038ed73d3cf55e4adc561155077d2ba2bd
       turn
     end
     if won?
@@ -126,6 +138,7 @@ class TicTacToe
       puts "Cat's Game!"
     end
     end
+<<<<<<< HEAD
   end
 
     # until over? == true
@@ -140,6 +153,23 @@ class TicTacToe
     # #   puts "Cat's Game!"
     # # end
 
+=======
+=======
+    until over? == true
+      turn
+    # if !draw? == true
+    #     turn
+    #   end
+    end
+    if won? == true
+      puts "Congratulations!"+ winner
+      elsif draw? 
+      puts "Cat's Game!"
+    end
+   end
+>>>>>>> bca8fea2e5e51e47ad69fc65a9e1dec7e599923f
+end
+>>>>>>> 5730ee038ed73d3cf55e4adc561155077d2ba2bd
  # winners_combo.detect{|token| token == "X" || token == "O"} 
  # else
     #   # if winners_combo.detect("O")
