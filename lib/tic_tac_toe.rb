@@ -1,4 +1,3 @@
-require 'pry'
 class TicTacToe
 
   WIN_COMBINATIONS= [
@@ -69,35 +68,36 @@ class TicTacToe
   def won?
     
     WIN_COMBINATIONS.each do |win_combo|
-     combo = win_combo[0] #setting each win_combo = to a variable
+     combo = win_combo[0] 
      combo1 = win_combo[1]
      combo2 = win_combo[2]
      
      position1 = @board[combo]
      position2 = @board[combo1]
      position3 = @board[combo2]
-      if (position1 == "X" && position2 =="X" && position3 =="X") || (position1 == "O" && position2 =="O" && position3 =="O")
-     #if position1 == position2 && position2 == position3  
-       
+    if (position1 == "X" && position2 =="X" && position3 =="X") || (position1 == "O" && position2 =="O" && position3 =="O")
         return win_combo
-     end
-   end
-   return false
+    end
+    end
+      return false
   end
   
   def full?
     @board.all?{|string| string == "X" || string == "O"}
   end
+  
   def draw?
     !won? && full?
   end 
+  
   def over?
    if draw? || won?
      return true
    else
     return false
-  end
+   end
   end 
+  
   def winner
     winners_combo = []
     winners_combo = won?
@@ -119,69 +119,9 @@ class TicTacToe
     end
     if won?
       puts "Congratulations #{winner}!"
-    #   puts "Congratulations X!"
-    # else winner == "O"
-    #   puts "Congratulations O!"
      elsif draw?
       puts "Cat's Game!"
     end
-    end
+   end
   end
-
-    # until over? == true
-    #   turn
-    # # if !draw? == true
-    # #     turn
-    # #   end
-    # end
-    # # if won? == true
-    # #   puts "Congratulations!"+ winner
-    # #   elsif draw? 
-    # #   puts "Cat's Game!"
-    # # end
-
- # winners_combo.detect{|token| token == "X" || token == "O"} 
- # else
-    #   # if winners_combo.detect("O")
-    #   # return "O"
-    # if @board.all?{|winners_combo| winners_combo == "X"}
-    #   return "X"
-    # else
-    # # elsif @board.all?{ == "O"}
-    # return "O"
-  # end
-  
-
-  # !@board.include?(“”) && 
-    #   then we need to look at positions on the board, or set each board position equal to a variable?
-    #   position = board[index?]
-       
-    #   then check if all the board positions have X's or O's 
-      
-    #   if yes return a win_combo 
-    #   else, return false 
-    # else @board.all? == "X" || "O" 
     
-     
-    # return win_combos #need to return the winning combos after we've matched them
- 
-  
-
-  # end
-  # if !@board.include?("") && @board.all?{|string| string == "X" || string == "O"}
-
-
-   # user_inputs = []
-          # user_inputs << self.valid_move?
-          # user_inputs << self.valid_move?
-          # user_inputs << self.valid_move?
-           
-      # if user_inputs == [WIN_COMBINATIONS] 
-      #   WIN_COMBINATIONS 
-        
-      # else 
-      #   ( @board.all? == "X" || "O")  || @board.any? 
-      #   # !WIN_COMBINATIONS
-      #   false
-     
-      # end  
